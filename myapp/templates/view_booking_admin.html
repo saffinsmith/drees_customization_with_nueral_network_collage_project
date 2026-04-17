@@ -1,0 +1,67 @@
+ {% include 'admin_navigation.html' %}
+ <br><br><br>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap Table</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+{% block content %}
+   <br>
+<div class="container mt-5">
+        <h2 class="text-center">View Booking</h2>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <!--<th scope="col">Id</th>-->
+                    <th scope="col">Booking ID:</th>
+                    <th scope="col">User ID</th>
+
+                    <!--<th scope="col">Name of user</th>-->
+                    <th scope="col">Turf Address</th>
+
+                    <th scope="col">Date of Booking</th>
+                    <th scope="col">Hour</th>
+                    <th scope="col">Status </th>
+
+                    <th scope="col">VIEW PROFILE </th>
+                    <th scope="col">APPROVE</th>
+                                        <th scope="col">NOT APPROVE </th>
+
+
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for result in data %}
+                <tr>
+                    <td>{{ result.0 }}</td>
+                    <td>{{ result.1 }}</td>
+                    <td>{{ result.2 }}</td>
+                    <td>{{ result.3 }}</td>
+                    <td>{{ result.4 }}</td>
+                    <td>{{ result.5 }}</td>
+
+                    <!--<td>{{ result.6 }}</td>-->
+
+                    <td><a href="view_user/{{ result.1 }}" class="btn btn-warning btn-sm">VIEW PROFILE </a></td>
+                    <td><a href="approveadmin/{{ result.0 }}" class="btn btn-warning btn-sm">APPROVE </a></td>
+                    <td><a href="not_approval/{{ result.0 }}" class="btn btn-warning btn-sm">NOT APPROVE </a></td>
+
+
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+{% endblock %}
+</html>

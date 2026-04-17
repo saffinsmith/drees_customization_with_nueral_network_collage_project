@@ -1,0 +1,92 @@
+{% include 'admin_navigation.html' %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Reply</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/3da5cff3a5.js" crossorigin="anonymous"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content {
+            flex: 1;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+        footer a {
+            color: #ffc107;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<br><br><br>
+{% block content %}
+<div class="wrapper">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-sm">
+            <a class="navbar-brand" href="#">Admin Panel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin_dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/turf_registration_link">Turf Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/feedback_list">Feedback</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <div class="content">
+        <div class="container w-50 border mt-5" id="form">
+            <form class="mt-5" action="/admin_reply" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="idfeedback" class="form-label">Feedback ID: {{ idfeedback }}</label>
+                    <input type="hidden" name="idfeedback" class="form-control" id="idfeedback" required>
+                </div>
+                <div class="mb-3">
+                    <label for="reply" class="form-label">Reply</label>
+                    <input type="text" name="reply" class="form-control" id="reply" value="{{ data.0.4 }}">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success text-white btn-outline-success form-control w-50 m-3" id="ekleButton">SUBMIT</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYHCUgSAn8ZmQ4xDEs0r4t5xkI5x7YpG1Dov8Hkp14xOcKjQ0KMpGDI/8" crossorigin="anonymous"></script>
+<script src="scripts.js"></script>
+</body>
+{% endblock %}
+</html>

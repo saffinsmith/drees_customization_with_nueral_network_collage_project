@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing and Printing Invoices</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Your CSS styles */
+        body { background-color: #f2f2f2; }
+        .invoice { background-color: #fff; width: 800px; margin: 0 auto; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        .invoice-header { text-align: center; margin-bottom: 20px; }
+        .invoice-form { margin-bottom: 20px; }
+        .invoice-form label { display: inline-block; width: 150px; font-weight: bold; color: #333; vertical-align: middle; }
+        .invoice-form input[type="text"], .invoice-form input[type="number"] { width: calc(100% - 200px); height: 30px; padding: 5px; border: 1px solid #ccc; border-radius: 4px; color: #555; vertical-align: middle; }
+        .invoice-form textarea { width: calc(100% - 200px); height: 50px; padding: 5px; border: none; border-radius: 4px; background-color: #000; color: #fff; font-size: 18px; vertical-align: middle; }
+        .invoice-form hr { margin-top: 20px; margin-bottom: 20px; border: none; border-top: 1px solid #ccc; }
+        .invoice-footer { display: flex; justify-content: space-between; margin-top: 20px; }
+        .invoice-footer .box { border: 1px solid #000; padding: 10px; width: 150px; height: 100px; }
+        .print-button { text-align: center; margin-top: 20px; }
+        .print-button button { background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        .print-button button:hover { background-color: #45a049; }
+        @media print { .print-button { display: none; } }
+        .footer { text-align: center; margin-top: 20px; display: block; }
+        @media print { .footer { display: none; } }
+    </style>
+</head>
+<body>
+    <div class="invoice">
+        <div class="invoice-header">
+            <h1>Invoice</h1>
+        </div>
+        <form class="invoice-form">
+            <label for="turf_num">Turf No:{{ bill_data.4 }}</label>
+            <br>
+            <label for="address">Turf Address:{{ bill_data.0 }}</label>
+            <br>
+
+            <hr>
+            <label for="name">Customer Name:{{ bill_data.1 }}</label>
+            <br><br>
+            <label for="book_date">Booking Date:{{ bill_data.5 }}</label>
+            <br><br>
+            <label for="mobile_number">Mobile Number:{{ bill_data.2 }}</label>
+            <br><br>
+            <label for="amount">Amount:{{ bill_data.6 }}</label>
+
+
+
+        <div class="print-button">
+            <button onclick="window.print()"><i class="fas fa-print"></i> Print Invoice</button>
+        </div>
+</form>
+    </div>
+
+    <script>
+        // Calculate the amount based on quantity and rate
+        function calculateAmount() {
+            const quantity = document.getElementById("quantity").value;
+            const rate = document.getElementById("rate").value;
+            const amount = quantity * rate || 0;
+            document.getElementById("amount").value = amount.toFixed(2);
+        }
+        // Add event listeners to quantity and rate fields
+        document.getElementById("quantity").addEventListener("input", calculateAmount);
+        document.getElementById("rate").addEventListener("input", calculateAmount);
+    </script>
+</body>
+</html>

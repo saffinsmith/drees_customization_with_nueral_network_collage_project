@@ -1,0 +1,83 @@
+
+{% include 'user_design.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<br><br><br><br>
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/3da5cff3a5.js" crossorigin="anonymous"></script>
+   <nav class="navbar navbar-expand navbar-light bg-light">
+
+     <div class="container-sm">
+         <br><br><br>
+         <a class="navbar-brand" href="#"><h2>Booking</h2></a>
+          <div class="navcontent">
+
+        </div>---><br><br><br><br> <br><br><br> <br>
+
+
+     </div>
+      </nav>
+
+<div class="container w-50 border mt-5 " id="form">
+      <form class="mt-5" method="POST" action="../../booking">
+          {% csrf_token %}
+
+
+          <!--------User ID-------->
+
+            <div class="formInput">
+                           <!-- <div>User ID:{{ user_id }}</div>--->
+
+                    <input type="hidden" class="form-control" id="user_id" name="user_id" value="{{ user_id }}" >
+                </div>
+
+<br>
+                    <div class="formInput">
+                            <div>Turf Register Number :{{ turf_register_no }}</div>
+
+                    <input type="hidden" class="form-control" id="turf_register_no" name="turf_register_no" value="{{ turf_register_no }}" >
+                </div>
+
+
+          <!--------Booking Dates-------->
+
+<br>
+        <div class="mb-3">
+          <label for="book_date" class="form-label">Booking Date</label>
+          <input type="date" class="form-control" id="book_date"  name="book_date">
+        </div>
+
+          <!--------hour-------->
+
+        <div class="mb-3">
+          <label class="form-label" for="hour">Hour</label>
+            <input type="text" class="form-control" id="hour" name="hour" required pattern="\d{1,2}" title="Please enter a valid hour (0-23) " placeholder="0-23">
+        </div>
+<!-------status------>
+
+<!-----<div class="mb-3">
+          <label class="form-label" for="status">Status</label>
+          <input type="text" class="form-control" id="status"  name="status">
+        </div>
+-------->
+
+
+
+
+        <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-success text-white btn-outline-success form-control w-50 m-3" id="ekleButton">BOOKING </button>
+        </div>
+      </form>
+  </div>
+<script src="scripts.js"></script>
+
+</body>
+{% endblock %}
+
+</html>

@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>FEMME AURA - Custom Ethnic Wear</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #C41E3A;
+            --secondary-color: #D4AF37;
+            --dark-color: #1a1a1a;
+            --light-color: #f8f5f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, rgba(26,26,26,0.95) 0%, rgba(26,26,26,0.98) 100%);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary-color) !important;
+            letter-spacing: 2px;
+        }
+
+        .navbar-brand span {
+            color: #fff;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            margin: 0 15px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+
+        .btn-nav {
+            background: var(--primary-color);
+            color: #fff !important;
+            padding: 10px 25px !important;
+            border-radius: 30px;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-nav:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212,175,55,0.3);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('static/images/hero_1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+
+        .btn-hero {
+            background: var(--primary-color);
+            color: #fff;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-hero:hover {
+            background: transparent;
+            color: #fff;
+            border-color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-decoration: none;
+        }
+
+        .btn-hero-outline {
+            background: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-hero-outline:hover {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: var(--light-color);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Collections Section */
+        .collections-section {
+            padding: 100px 0;
+            background: var(--dark-color);
+            color: #fff;
+        }
+
+        .collections-section .section-title h2 {
+            color: #fff;
+        }
+
+        .collection-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+
+        .collection-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .collection-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .collection-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .collection-card:hover .collection-overlay {
+            padding-bottom: 40px;
+        }
+
+        .collection-overlay h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .collection-overlay p {
+            color: var(--secondary-color);
+            margin: 0;
+        }
+
+        /* AI Feature Section */
+        .ai-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f5f0 0%, #fff 100%);
+        }
+
+        .ai-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .ai-text h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+
+        .ai-text h2 span {
+            color: var(--primary-color);
+        }
+
+        .ai-text p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .ai-features-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ai-features-list li {
+            padding: 10px 0;
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+
+        .ai-features-list li i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+
+        .ai-image {
+            position: relative;
+        }
+
+        .ai-image img {
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+
+        .ai-badge {
+            position: absolute;
+            top: 20px;
+            right: -20px;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(196,30,58,0.3);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .testimonial-card {
+            background: var(--light-color);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid var(--secondary-color);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+
+        .testimonial-role {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        .stars {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #8B1538 100%);
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: rotate 60s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .btn-cta {
+            background: #fff;
+            color: var(--primary-color);
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: #fff;
+            padding: 60px 0 30px;
+        }
+
+        .footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .footer-about {
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .footer h4 {
+            color: #fff;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-contact {
+            color: #aaa;
+        }
+
+        .footer-contact i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: #fff;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+            color: #666;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .btn-hero {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            .ai-content {
+                flex-direction: column;
+            }
+
+            .ai-image {
+                margin-top: 40px;
+            }
+
+            .ai-badge {
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">FEMME <span>AURA</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'30\' height=\'30\' viewBox=\'0 0 30 30\'%3e%3cpath stroke=\'rgba(255, 255, 255, 0.9)\' stroke-linecap=\'round\' stroke-miterlimit=\'10\' stroke-width=\'2\' d=\'M4 7h22M4 15h22M4 23h22\'/%3e%3c/svg%3e');"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Home</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link btn-nav" href="registration_link">Get Started</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login_link"><i class="fas fa-user"></i> Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <section class="hero-section" id="home">
+        <div class="hero-content">
+            <p class="hero-subtitle">Discover Elegance</p>
+            <h1 class="hero-title">Design Your Dream<br>Lehenga</h1>
+            <p class="hero-description">Experience the perfect blend of tradition and technology. Create custom ethnic wear with our AI-powered design assistant and expert tailoring.</p>
+            <a href="registration_link" class="btn-hero">Start Designing</a>
+            <a href="#collections" class="btn-hero btn-hero-outline">Explore Collections</a>
+        </div>
+    </section>
+
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Femme Aura</h2>
+                <p>Experience the future of ethnic fashion with our unique blend of tradition and innovation</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3>AI-Powered Design</h3>
+                        <p>Our intelligent fashion assistant helps you create the perfect design with personalized recommendations based on your preferences.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-ruler-combined"></i>
+                        </div>
+                        <h3>Perfect Fit Guarantee</h3>
+                        <p>Advanced measurement system ensures your lehenga fits perfectly. Custom tailoring for every body type and size.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Premium Fabrics</h3>
+                        <p>Choose from our curated collection of high-quality fabrics. From silk to velvet, find the perfect material for your special occasion.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h3>Fast Delivery</h3>
+                        <p>Get your custom lehenga delivered to your doorstep. Track your order status in real-time from design to delivery.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>24/7 Support</h3>
+                        <p>Our dedicated support team is always ready to help you with any questions about your order or design process.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3>Artisan Craftsmanship</h3>
+                        <p>Each piece is handcrafted by skilled artisans with years of experience in traditional Indian embroidery and tailoring.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section class="collections-section" id="collections">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Exquisite Collections</h2>
+                <p style="color: #aaa;">Explore our stunning range of handcrafted lehengas</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="collection-card">
+                        <img src="static/images/player_4.jpg" alt="Bridal Collection">
+                        <div class="collection-overlay">
+                            <h3>Bridal Elegance</h3>
+                            <p>Traditional Red Collection</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="collection-card">
+                        <img src="static/images/player_1.jpg" alt="Party Wear">
+                        <div class="collection-overlay">
+                            <h3>Party Glamour</h3>
+                            <p>Contemporary Designs</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="collection-card">
+                        <img src="static/images/player_5.jpg" alt="Thread Work">
+                        <div class="collection-overlay">
+                            <h3>Thread Artistry</h3>
+                            <p>Intricate Embroidery</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="collection-card">
+                        <img src="static/images/player_3.jpg" alt="Choli Sets">
+                        <div class="collection-overlay">
+                            <h3>Choli Sets</h3>
+                            <p>Complete Ensembles</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Feature Section -->
+    <section class="ai-section" id="ai">
+        <div class="container">
+            <div class="row ai-content">
+                <div class="col-lg-6">
+                    <div class="ai-text">
+                        <h2>Design with <span>AI Intelligence</span></h2>
+                        <p>Experience the future of fashion design with our cutting-edge AI assistant. Simply describe your dream lehenga, and our intelligent system will help bring your vision to life with personalized recommendations.</p>
+                        <ul class="ai-features-list">
+                            <li><i class="fas fa-check-circle"></i> Smart fabric recommendations based on occasion</li>
+                            <li><i class="fas fa-check-circle"></i> Color palette suggestions for perfect combinations</li>
+                            <li><i class="fas fa-check-circle"></i> Style matching based on your preferences</li>
+                            <li><i class="fas fa-check-circle"></i> Real-time design visualization</li>
+                            <li><i class="fas fa-check-circle"></i> 24/7 AI fashion consultant</li>
+                        </ul>
+                        <a href="registration_link" class="btn-hero" style="margin-top: 20px;">Try AI Designer</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ai-image">
+                        <img src="static/images/hero_2.jpg" alt="AI Fashion Design" class="img-fluid">
+                        <div class="ai-badge">
+                            <i class="fas fa-robot"></i> AI Powered
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Real stories from our satisfied customers</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <img src="static/images/person_1.jpg" alt="Customer" class="testimonial-img">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"The AI design assistant helped me create the perfect bridal lehenga. The fit was impeccable and the craftsmanship was outstanding!"</p>
+                        <h5 class="testimonial-name">Priya Sharma</h5>
+                        <p class="testimonial-role">Bridal Customer</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <img src="static/images/person_2.jpg" alt="Customer" class="testimonial-img">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"I loved how easy it was to customize every detail. The online measurement system is so accurate. Highly recommended!"</p>
+                        <h5 class="testimonial-name">Ananya Patel</h5>
+                        <p class="testimonial-role">Regular Customer</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <img src="static/images/person_3.jpg" alt="Customer" class="testimonial-img">
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text">"The quality of fabric and embroidery exceeded my expectations. My wedding lehenga was absolutely stunning!"</p>
+                        <h5 class="testimonial-name">Meera Reddy</h5>
+                        <p class="testimonial-role">Wedding Customer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Create Your Dream Lehenga?</h2>
+                <p>Join thousands of satisfied customers who have discovered the perfect blend of tradition and technology</p>
+                <a href="registration_link" class="btn-cta">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="footer-brand">FEMME AURA</h3>
+                    <p class="footer-about">Your premier destination for custom ethnic wear. We blend traditional craftsmanship with modern AI technology to create the perfect lehenga for your special moments.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#collections">Collections</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#ai">AI Design</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="registration_link">Custom Design</a></li>
+                        <li><a href="view_category_user">Fabrics</a></li>
+                        <li><a href="view_part_user">Styles</a></li>
+                        <li><a href="measurements_link">Measurements</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4>Contact Us</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Fashion Street, Design District</p>
+                        <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                        <p><i class="fas fa-envelope"></i> info@femmeaura.com</p>
+                        <p><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 8:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Femme Aura. All rights reserved. | Custom Ethnic Wear Platform</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+                $('.navbar').css('padding', '10px 0');
+                $('.navbar').css('background', 'rgba(26,26,26,0.98)');
+            } else {
+                $('.navbar').css('padding', '15px 0');
+                $('.navbar').css('background', 'linear-gradient(135deg, rgba(26,26,26,0.95) 0%, rgba(26,26,26,0.98) 100%)');
+            }
+        });
+
+        // Smooth scrolling
+        $('a[href^="#"]').on('click', function(e) {
+            e.preventDefault();
+            var target = $(this.getAttribute('href'));
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 70
+                }, 800);
+            }
+        });
+    </script>
+</body>
+</html>

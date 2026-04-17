@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <style>
+        table {
+            border-collapse: collapse; /* Merge borders */
+            width: 80%; /* Adjust table width */
+            margin: 20px auto; /* Center table */
+        }
+        th, td {
+            border: 1px solid #ddd; /* Add border */
+            padding: 10px; /* Add padding */
+            text-align: center; /* Center-align text */
+        }
+        th {
+            background-color: #4C53E4; /* Green background */
+            color: white; /* White text */
+        }
+        td {
+            background-color: #f9f9f9; /* Light grey for cells */
+            color: #333; /* Dark text color */
+        }
+        tr:hover {
+            background-color: #f1f1f1; /* Highlight row on hover */
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">VIEW ORDER REPORT</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Sl No</th>
+                <th>Paid Date</th>
+                <th>Collected Amount</th>
+                <th>User</th>
+
+            </tr>
+        </thead>
+        <tbody>
+          {% for i in data %}
+            <tr>
+               <td>{{ forloop.counter }}</td>
+                <td>{{i.2}}</td>
+                <td>{{i.5}}</td>
+                 <td>{{i.1}}</td>
+            </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,106 @@
+ {% include 'user_nav.html' %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Select Size</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+
+</head>
+<body>
+  <form action="payment_start" method="post">
+<br><br><br><br>
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="text-center">Select Size</h2>
+        <table class="table table-striped table-bordered">
+            <tbody class="thead-dark">
+
+             <tr>
+                <td></td>
+                <td>
+                 <h3>  Total Amount: {{ amount }} </h3>
+                </td>
+            </tr>
+              <tr>
+                <td>   Select Type  </td>
+                <td>
+                <select id="options" name="options">
+                    <option value="Aline Gown">Aline Gown </option>
+                    <option value="Flared Lehenga">Flared Lehenga</option>
+                    <option value="Aline Lehenga">Aline Lehenga </option>
+                    <option value="Jacket Lehenga">Jacket Lehenga </option>
+                    <option value="Mermaid Gown ">Mermaid Gown </option>
+                     <option value="Mermaid Lehenga">Mermaid Lehenga</option>
+                      <option value="Panel Lehenga">Panel Lehenga</option>
+                </select>
+
+                </td>
+            </tr>
+              <tr>
+                <td></td>
+                <td>
+                 <h3>  Total Amount: {{ amount }} </h3>
+                </td>
+            </tr>
+
+                <tr>
+                    <td scope="col">Select Date</td>
+                    <td scope="col">
+                    <input type="text" name="datepicker" id="datepicker">
+         <script>
+
+        $(function() {
+            $("#datepicker").datepicker({
+                minDate: 5
+            });
+        });
+    </script>
+                    </td>
+
+                </tr>
+             <tr>
+                 <td>
+                     Enter Suggestion
+                 </td>
+                 <td>
+                     <textarea name="suggestion"></textarea>
+                 </td>
+             </tr>
+            <tr>
+                <td></td>
+                <td>
+
+             {% csrf_token %}
+            <input type="hidden" name="total_amount" value="{{ amount }}"/>
+             <button type="submit" class="btn btn-warning btn-sm" style="background-color: green; color: white; border-radius: 10px; padding: 10px 20px;">
+    Proceed to checkout
+</button>
+
+
+
+
+
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   </form>
+</body>
+{% endblock %}
+
+

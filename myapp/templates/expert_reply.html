@@ -1,0 +1,81 @@
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reply</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: #f4f6f9;
+        }
+
+        .card-box {
+            max-width: 600px;
+            margin: auto;
+            margin-top: 80px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            background: #fff;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+        }
+
+        .back-btn {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Back Button -->
+    <a href="javascript:history.back()" class="btn btn-secondary back-btn">
+        ← Back
+    </a>
+
+    <div class="card-box">
+
+        <h4 class="text-center mb-3">💬 Send Reply</h4>
+
+
+        {% if data %}
+        <div class="alert alert-info">
+            <strong>User Query:</strong><br>
+            {{ data.10 }}
+        </div>
+        {% endif %}
+
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Your Reply</label>
+                <textarea name="reply" class="form-control" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-submit">
+                Submit Reply
+            </button>
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+{% endblock %}

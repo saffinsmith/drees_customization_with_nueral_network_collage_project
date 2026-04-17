@@ -1,0 +1,55 @@
+ {% include 'admin_navigation.html' %}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap Table</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+{% block content %}
+<br><br><br><br>
+    <div class="container mt-5">
+        <h2 class="text-center">View Places</h2>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <!--<th scope="col">Id</th>-->
+                    <th scope="col">Place ID</th>
+                    <th scope="col">District ID</th>
+                    <th scope="col">Place name</th>
+                    <th scope="col">City</th>
+                    <th scope="col">EDIT </th>
+                    <th scope="col">DELETE </th>
+                    <th scope="col">REGISTER </th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for result in data %}
+                <tr>
+                    <td>{{ result.0 }}</td>
+                    <td>{{ result.1 }}</td>
+                    <td>{{ result.2 }}</td>
+                    <td>{{ result.3 }}</td>
+
+
+                    <td><a href="edit_place/{{ result.0 }}" class="btn btn-warning btn-sm">EDIT </a></td>
+                    <td><a href="delete_place/{{ result.0 }}" class="btn btn-warning btn-sm">DELETE </a></td>
+                    <td><a href="turf_registration_link/{{result.0}}/{{ result.1 }}" class="btn btn-warning btn-sm">TURF REGISTER </a></td>
+
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>{% endblock %}
+

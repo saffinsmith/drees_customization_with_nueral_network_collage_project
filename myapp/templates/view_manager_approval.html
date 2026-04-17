@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Approval</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+
+<!-- Header -->
+<header class="jumbotron jumbotron-fluid text-center bg-primary text-white">
+    <div class="container">
+        <h1 class="display-4"> Approval of Turf</h1>
+        <p class="lead"></p>
+    </div>
+</header>
+
+<!--  Approval Table -->
+<section class="container my-5">
+    <!---<h2 class="text-center mb-4">Pending </h2>-->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+
+                 <tr>
+
+                    <th scope="col">Name </th>
+                    <th scope="col">City </th>
+                    <th scope="col">District </th>
+                <th scope="col">Date of Booking</th>
+
+                    <th scope="col">Turf Register No</th>
+
+                    <th scope="col">Hour</th>
+
+
+
+                    <th scope="col">Status</th>
+
+                    <th scope="col">Action</th>
+
+
+
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>{{ data.0 }}</td>
+                    <td>{{ data.1 }}</td>
+
+                    <td>{{ data.2 }}</td>
+                    <td>{{ data.4 }}</td>
+                    <td>{{ data.5 }}</td>
+                    <td>{{ data.4 }}</td>
+
+                    <td>{{ data.7 }}</td>
+
+
+
+
+
+                   <td><a href="logout"> <button class="btn btn-success btn-sm" disabled >Logout</button></a>
+
+                    <!--<a href=""><button class="btn btn-danger btn-sm" disabled>Reject</button></a>
+</td>-->
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+</body>
+</html>

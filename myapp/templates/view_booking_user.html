@@ -1,0 +1,57 @@
+{% include 'user_design.html' %}
+ <br><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap Table</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+{% block content %}
+   <br>
+<div class="container mt-5">
+        <h2 class="text-center">View User Booking</h2>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Place </th>
+                    <th scope="col">City </th>
+                    <th scope="col">District </th>
+                    <th scope="col">Date of Booking</th>
+                   <th scope="col">Turf Register No</th>
+                    <th scope="col">Hour</th>
+                    <th scope="col">Status</th>  <!-- Added for status display -->
+                    <th scope="col">Actions</th> <!-- Added for actions -->
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for result in data %}
+                <tr>
+                    <td>{{ result.0 }}</td>
+                    <td>{{ result.1 }}</td>
+                    <td>{{ result.2 }}</td>
+                    <td>{{ result.3 }}</td>
+                   <td>{{ result.4 }}</td>
+                    <td>{{ result.5 }}</td>
+                    <td>{{ result.6 }}</td>  <!-- Added for status display -->
+                    <td>
+                        {% if result.6 == 'approved' %}
+                        <a href="payment/{{ result.7 }}" class="btn btn-warning btn-sm">Payment</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+{% endblock %}
+</html>

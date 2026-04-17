@@ -1,0 +1,56 @@
+{% include 'user_design.html' %}
+
+
+<html>
+<head>
+    <title>Feedback Form</title>
+
+
+   <!--<style> body { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; font-family: Arial, sans-serif; background-color: #f4f4f4; } .form-container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); } form { display: flex; flex-direction: column; } label, input, textarea { margin-bottom: 10px; width: 100%; } textarea { resize: vertical; }
+    h2{ text-align: left; margin-top:9; } </style>-->
+
+</head>
+<body>
+{% block content %}
+<br><br><br><br><br>
+<br><br>
+    <h2>Feedback Form</h2>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label for="user_id">User ID:</label><br>
+        <input type="text" id="user_id" name="user_id" required><br><br>
+
+        <label for="details">Feedback Details:</label><br>
+        <textarea id="details" name="details" required></textarea><br><br>
+
+        <input type="hidden" id="turf_register_no" name="turf_register_no" value="{{ turf_register_no }}">
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+{% endblock %}
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

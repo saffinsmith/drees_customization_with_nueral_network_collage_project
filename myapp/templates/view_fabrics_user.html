@@ -1,0 +1,43 @@
+ {% include 'user_header_two.html' %}
+ <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap Cards</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    .card-img-top {
+        width: 2in;
+        height: 3in;
+        object-fit: cover;
+    }
+</style>
+</head>
+<body>
+{% block content %}
+<br><br><br><br>
+    <div class="container mt-5">
+        <h2 class="text-center">View Fabrics</h2>
+        <div class="row">
+            {% for result in data %}
+             <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ result.4 }}" class="card-img-top" alt="Fabric Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Sl No: {{ forloop.counter }}</h5>
+
+                        <p class="card-text"><strong>Fabrics Name:</strong> {{ result.2 }}</p>
+                        <p class="card-text"><strong>Price:</strong> {{ result.3 }}</p>
+                         <a href="../select_fabrics/{{ result.0 }}" class="btn btn-warning btn-sm">SELECT </a>
+                        <!-----  <a href="delete_fabrics/{{ result.0 }}" class="btn btn-warning btn-sm">DELETE </a> ----->
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>{% endblock %}
