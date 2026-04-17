@@ -1,0 +1,21 @@
+/venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Env files
+.env
+.env.*
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Django stuff
+*.log
+db.sqlite3
+
+# Pytest
+.pytest_cache/
